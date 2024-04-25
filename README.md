@@ -16,6 +16,7 @@ https://dummy-google-calendar-80cb55ddab24.herokuapp.com
 ### API Key
 
 This API requires an API key to access protected endpoints. Set the api-key header in your request with the value of your API key.
+key is 0cb3c20a-bf39-4241-b03f-cd329a484ecd
 
 ## API Endpoints
 
