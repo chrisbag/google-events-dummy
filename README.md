@@ -5,6 +5,14 @@ It allows you to perform CRUD operations (Create, Read, Update, Delete) on event
 
 ## Usage
 
+### Storage
+
+Events are not persited in a DB, only in an array in memory.
+
+### URL
+
+https://dummy-google-calendar-80cb55ddab24.herokuapp.com
+
 ### API Key
 
 This API requires an API key to access protected endpoints. Set the api-key header in your request with the value of your API key.
