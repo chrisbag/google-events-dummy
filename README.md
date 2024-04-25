@@ -23,7 +23,7 @@ key is 0cb3c20a-bf39-4241-b03f-cd329a484ecd
 
 - POST /events: Create a new event with example payload
 
-````
+```
 {
     "isDone":false,
     "description":"Tech interview",
@@ -32,6 +32,7 @@ key is 0cb3c20a-bf39-4241-b03f-cd329a484ecd
     "ownerId":1
 }
 ```
+
 - Get all events. Has built-in pagination with a limit of 10. Use the page query parameter to specify the page number (e.g., /events?page=2).
 - GET /events/:id: Get a specific event by ID.
 - PATCH /events/:id: Update a specific event by ID.
@@ -46,4 +47,7 @@ Events have the following fields:
 - startAt: Start date and time of the event - text datetime - YYYY-MM-DDTHH:mm:ssZ
 - endAt: End date and time of the event - text datetime - YYYY-MM-DDTHH:mm:ssZ
 - ownerId: Google id of the owner of the task - number - 1131 / 4323
-````
+
+```
+
+```
