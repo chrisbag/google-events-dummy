@@ -22,7 +22,7 @@ key is 0cb3c20a-bf39-4241-b03f-cd329a484ecd
 ### Routes
 
 - POST /events: Create a new event.
-- Get all events. Supports pagination with a default limit of 10 events per page. Use the page query parameter to specify the page number (e.g., /events?page=2).
+- Get all events. Has built-in pagination with a limit of 10. Use the page query parameter to specify the page number (e.g., /events?page=2).
 - GET /events/:id: Get a specific event by ID.
 - PATCH /events/:id: Update a specific event by ID.
 - DELETE /events/:id: Delete a specific event by ID.
