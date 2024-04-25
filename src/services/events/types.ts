@@ -1,6 +1,6 @@
 // Interface for Event
 export interface GoogleEvent {
-  id: number;
+  id: string;
   isDone: boolean;
   description: string;
   startAt: string;

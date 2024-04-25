@@ -20,6 +20,10 @@ It allows you to perform CRUD operations (Create, Read, Update, Delete) on event
 
 ## Usage
 
+### API Key
+
+This API requires an API key to access protected endpoints. Set the api-key header in your request with the value of your API key.
+
 ### Development
 
 To run the application in development mode, use the following command:
@@ -53,6 +57,6 @@ Events have the following fields:
 
 - id: Unique identifier for the event - number
 - description: Description of the event - text | null
-- startAt: Start date and time of the event - text
-- endAt: End date and time of the event - text
+- startAt: Start date and time of the event - text datetime YYYY-MM-DDTHH:mm:ssZ
+- endAt: End date and time of the event - text datetime YYYY-MM-DDTHH:mm:ssZ
 - isDone: Indicates whether the event is completed or not - boolean
