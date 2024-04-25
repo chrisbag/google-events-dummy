@@ -5,11 +5,10 @@ It allows you to perform CRUD operations (Create, Read, Update, Delete) on event
 
 ## Usage
 
-### Storage
+### Storage and URL
 
-Events are not persited in a DB, only in an array in memory.
-
-### URL
+Events are not persited in a DB, only in an array in memory. FYI, your events will be visible to other candidates passing tests.
+The app might take a couple secs to startup if api hasn't been used in a while as the dyno will go to sleep.
 
 https://dummy-google-calendar-80cb55ddab24.herokuapp.com
 
