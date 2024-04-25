@@ -1,4 +1,4 @@
-import { boolean, object, string } from "yup";
+import { object, string, number } from "yup";
 
 const datetime = string().test(
   "is-datetime",
@@ -16,7 +16,7 @@ export const createEventSchema = object().shape({
   description: string().nullable(),
   startAt: datetime.required(),
   endAt: datetime.required(),
-  isDone: boolean(),
+  ownerId: number().min(1).max(3).required(),
 });
 
 // Validation schema for patching events
@@ -24,5 +24,5 @@ export const patchEventSchema = object().shape({
   description: string().nullable(),
   startAt: datetime.required(),
   endAt: datetime.required(),
-  isDone: boolean(),
+  ownerId: number().min(1).max(3).required(),
 });

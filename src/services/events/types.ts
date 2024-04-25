@@ -1,8 +1,8 @@
 // Interface for Event
 export interface GoogleEvent {
   id: string;
-  isDone: boolean;
-  description: string;
+  description: string | null;
   startAt: string;
   endAt: string;
+  ownerId: number;
 }
