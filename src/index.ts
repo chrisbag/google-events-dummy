@@ -4,7 +4,7 @@ import apiKeyMiddleware from "./middleware/api-key";
 import services from "./services";
 
 const app = express();
-const PORT = 3040;
+const PORT = process.env.PORT || 3040;
 
 // Middleware
 app.use(express.json());
