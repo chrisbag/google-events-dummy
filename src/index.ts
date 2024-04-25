@@ -1,8 +1,11 @@
 import express, { Request, Response } from "express";
 import bodyParser from "body-parser";
+import chunk from "lodash/chunk";
+
+import { defaultEvents } from "./data";
 
 const app = express();
-const PORT = 3000;
+const PORT = 3040;
 
 // Middleware
 app.use(bodyParser.json());
@@ -17,7 +20,7 @@ interface Event {
 }
 
 // In-memory storage for events
-let events: Event[] = [];
+let events = defaultEvents;
 
 // Routes
 app.post("/events", (req: Request, res: Response) => {
@@ -34,7 +37,10 @@ app.post("/events", (req: Request, res: Response) => {
 });
 
 app.get("/events", (req: Request, res: Response) => {
-  res.json(events);
+  res.json({
+    total: events.length,
+    data: chunk(events, 10),
+  });
 });
 
 app.get("/events/:id", (req: Request, res: Response) => {

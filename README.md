@@ -51,8 +51,8 @@ yarn start
 
 Events have the following fields:
 
-- id: Unique identifier for the event.
-- description: Description of the event.
-- startAt: Start date and time of the event.
-- endAt: End date and time of the event.
-- isDone: Indicates whether the event is completed or not.
+- id: Unique identifier for the event - number
+- description: Description of the event - text | null
+- startAt: Start date and time of the event - text
+- endAt: End date and time of the event - text
+- isDone: Indicates whether the event is completed or not - boolean
