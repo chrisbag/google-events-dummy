@@ -35,9 +35,18 @@ export const createEvent = async (req: Request, res: Response) => {
 };
 
 export const getEvents = (req: Request, res: Response) => {
+  const page = parseInt(req.query.page as string) || 1; // Default to page 1 if page query parameter is not provided
+  const limit = 10;
+  const startIndex = (page - 1) * limit;
+  const endIndex = page * limit;
+
+  const results = events.slice(startIndex, endIndex);
+
   res.json({
     total: events.length,
-    data: chunk(events, 10),
+    totalPages: Math.ceil(events.length / limit),
+    currentPage: page,
+    data: results,
   });
 };
 

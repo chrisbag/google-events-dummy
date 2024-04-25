@@ -22,4 +22,11 @@ export const defaultEvents: GoogleEvent[] = [
     endAt: "2024-04-25T13:00:00Z",
     ownerId: 4323,
   },
+  {
+    id: "78f000e0-9c32-4ab3-b31f-d2964c46f05e",
+    description: "Lunch",
+    startAt: "2024-04-25T12:00:00Z",
+    endAt: "2024-04-25T13:00:00Z",
+    ownerId: 6000,
+  },
 ];
