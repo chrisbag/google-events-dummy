@@ -3,43 +3,11 @@
 Event API is a Node.js Express application for handling Calendar events.
 It allows you to perform CRUD operations (Create, Read, Update, Delete) on events stored in memory.
 
-## Installation
-
-1. Clone the repository:
-
-   ```
-   git clone https://github.com/chrisbag/google-events-dummy.git
-   ```
-
-2. Install dependencies
-
-```
-   cd event-api
-   yarn install
-```
-
 ## Usage
 
 ### API Key
 
 This API requires an API key to access protected endpoints. Set the api-key header in your request with the value of your API key.
-
-### Development
-
-To run the application in development mode, use the following command:
-
-```
-yarn dev
-```
-
-### Production
-
-To build the application for production and run the compiled JavaScript code, use the following commands:
-
-```
-yarn build
-yarn start
-```
 
 ## API Endpoints
 
