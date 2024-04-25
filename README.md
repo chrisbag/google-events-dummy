@@ -22,7 +22,7 @@ This API requires an API key to access protected endpoints. Set the api-key head
 ### Routes
 
 - POST /events: Create a new event.
-- GET /events: Get all events.
+- Get all events. Supports pagination with a default limit of 10 events per page. Use the page query parameter to specify the page number (e.g., /events?page=2).
 - GET /events/:id: Get a specific event by ID.
 - PATCH /events/:id: Update a specific event by ID.
 - DELETE /events/:id: Delete a specific event by ID.
