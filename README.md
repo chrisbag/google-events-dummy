@@ -31,8 +31,8 @@ This API requires an API key to access protected endpoints. Set the api-key head
 
 Events have the following fields:
 
-- id: Unique identifier for the event - number
-- description: Description of the event - text | null
-- startAt: Start date and time of the event - text datetime YYYY-MM-DDTHH:mm:ssZ
-- endAt: End date and time of the event - text datetime YYYY-MM-DDTHH:mm:ssZ
-- isDone: Indicates whether the event is completed or not - boolean
+- id: Unique identifier for the event - string - 5ea188cc-2209-4a1b-9471-55d7e14e8efa
+- description: Description of the event - text | null - Meeging with a client
+- startAt: Start date and time of the event - text datetime - YYYY-MM-DDTHH:mm:ssZ
+- endAt: End date and time of the event - text datetime - YYYY-MM-DDTHH:mm:ssZ
+- ownerId: Google id of the owner of the task - number - 1131 / 4323
