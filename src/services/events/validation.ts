@@ -1,4 +1,4 @@
-import { object, string, number } from "yup";
+import { object, string, number, ref } from 'yup';
 
 const datetime = string().test(
   "is-datetime",
@@ -11,18 +11,32 @@ const datetime = string().test(
   }
 );
 
+const endAtValidation = datetime.required().test('test-endAt', 'End date should be after start date', function checkEnd(
+		end
+) {
+	const { startAt } = this.parent;
+	return new Date(end) >= new Date(startAt);
+});
+
+const startAtValidation = datetime.required().test('test-endAt', 'Start date should be before end date', function checkStart(
+		start
+) {
+	const { endAt } = this.parent;
+	return new Date(start) <= new Date(endAt);
+});
+
 // Validation schema for creating events
 export const createEventSchema = object().shape({
   description: string().nullable(),
-  startAt: datetime.required(),
-  endAt: datetime.required(),
-  ownerId: number().min(1).max(3).required(),
+  startAt: startAtValidation,
+  endAt: endAtValidation,
+  ownerId: number().required(),
 });
 
 // Validation schema for patching events
 export const patchEventSchema = object().shape({
   description: string().nullable(),
-  startAt: datetime.required(),
-  endAt: datetime.required(),
-  ownerId: number().min(1).max(3).required(),
+  startAt: startAtValidation,
+  endAt: endAtValidation,
+  ownerId: number().required(),
 });

@@ -1,10 +1,11 @@
-import { Request, Response } from "express";
-import { v4 as uuidv4 } from "uuid";
+import { Request, Response } from 'express';
+import { v4 as uuidv4 } from 'uuid';
 
-import chunk from "lodash/chunk";
-import { defaultEvents } from "./data";
-import { GoogleEvent } from "./types";
-import { createEventSchema, patchEventSchema } from "./validation";
+import { defaultEvents } from './data';
+import { GoogleEvent } from './types';
+import { createEventSchema, patchEventSchema } from './validation';
+import * as Service from '../webhooks/service';
+import { WebhookAction } from '../webhooks/types';
 
 let events = defaultEvents;
 
@@ -31,6 +32,7 @@ export const createEvent = async (req: Request, res: Response) => {
     ownerId,
   };
   events.push(newEvent);
+  await Service.callWebHooks(WebhookAction.CREATE, newEvent);
   res.status(201).json(newEvent);
 };
 
@@ -90,14 +92,22 @@ export const patchEvent = async (req: Request, res: Response) => {
 
     // Update event in memory
     events[eventIndex] = updatedEvent;
+	  await Service.callWebHooks(WebhookAction.PATCH, updatedEvent)
     return res.json(updatedEvent);
   } else {
     return res.status(404).json({ error: "Event not found" });
   }
 };
 
-export const deleteEvent = (req: Request, res: Response) => {
+export const deleteEvent = async (req: Request, res: Response) => {
   const eventId = req.params.id;
-  events = events.filter((event) => event.id !== eventId);
+
+	const deletedEvent = events.find((event) => event.id === eventId);
+	if(deletedEvent) {
+		await Service.callWebHooks(WebhookAction.DELETE, deletedEvent);
+	}
+	// idea : else throw 404 error
+
+	events = events.filter((event) => event.id !== eventId);
   res.sendStatus(204);
 };
